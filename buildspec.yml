@@ -2,6 +2,28 @@ version: 0.2
 phases:
  install:
    commands:
+     - echo Installing phase
+ build:
+   commands:
+     - echo Build phase
+ post_build:
+   commands:
+     - echo Deploying to EC2
+     - ssh -o StrictHostKeyChecking=no ec2-user@$EC2_HOST "cd cicd-app && git pull && npm install && pm2 restart all"version: 0.2
+phases:
+ install:
+version: 0.2
+phases:
+ install:
+   commands:
+     - echo Installing phase
+ build:
+   commands:
+     - echo Build phase
+ post_build:
+   commands:
+     - echo Deploying to EC2
+     - ssh -o StrictHostKeyChecking=no ec2-user@$EC2_HOST "cd cicd-app && git pull && npm install && pm2 restart all"   commands:
      - echo Installing...
  build:
    commands:
@@ -20,3 +42,15 @@ phases:
  post_build:
    commands:
      - echo Deployment step
+version: 0.2
+phases:
+ install:
+   commands:
+     - echo Installing phase
+ build:
+   commands:
+     - echo Build phase
+ post_build:
+   commands:
+     - echo Deploying to EC2
+     - ssh -o StrictHostKeyChecking=no ec2-user@$EC2_HOST "cd cicd-app && git pull && npm install && pm2 restart all"
